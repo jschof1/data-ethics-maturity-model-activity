@@ -2,6 +2,7 @@
   import studyQuestionMap from './studyQuestionMap.js';
   import { fade } from 'svelte/transition';
 
+
   let selectedStudy;
   let showPreLoadedOptions = true;
   let showQuestions = false;
@@ -121,7 +122,7 @@ updateProgressBar();
   </div>
 </div>
 {#if showPreLoadedOptions}
-  <ul>
+<ul>
     {#each preLoadedTopics as study}
       <li>
         <button class="option-btns" on:click={() => confirmSelection(study)}>{study}</button>
@@ -222,21 +223,6 @@ button {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-input {
-  border: none;
-  outline: none;
-  -webkit-appearance: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border-radius: 5px;
-  height: 30px;
-  padding-inline: 4px;
-  font-size: 20px;
-}
-
-li {
-  list-style-type: none;
-  display: inline-block;
-}
 
 .option-btns {
   border-radius: 8px;
@@ -258,4 +244,10 @@ li {
 .option-btns:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+li {
+  list-style-type: none;
+  display: inline;
+}
+
 </style>

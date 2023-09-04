@@ -13,14 +13,14 @@
 <div transition:fade="{{duration: 500}}">
   <div class="chat-bubble">
     {message}
-    <br><button class="modal-btn" on:click={() => showModal = true}>Learn more</button>
+    <br><button class="modal-btn" on:click={() => showModal = true } on:keydown={(e) => e.key === 'Enter' && (showModal = false)} >Learn more</button>
   </div>
 </div>
 
 {#if showModal}
   <div class="modal">
     <div class="modal-content">
-      <span class="close" on:click={() => showModal = false}>&times;</span>
+      <span class="close" role="button" tabindex="0" on:click={() => showModal = false} on:keydown={(e) => e.key === 'Enter' && (showModal = false)}>&times;</span>
       <h3>What is the Data Ethics Maturity Model?</h3>
       <p>
         The Data Ethics Maturity Model serves as a framework for organizations to evaluate their current proficiency in the ethical handling of data. It examines various themes such as organizational governance, skills and knowledge, and compliance, among others. By employing this model, organizations can identify areas that require attention and plan actionable steps towards ethical maturity.
@@ -56,18 +56,6 @@
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     position: relative;
-  }
-  .info-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    cursor: pointer;
   }
 
   .modal-btn {
